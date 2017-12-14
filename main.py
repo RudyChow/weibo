@@ -1,13 +1,9 @@
 #-*-coding:utf-8-*- #
 
 import requests
-import sys
 
 # r = requests.get('https://m.weibo.cn/p/index?containerid=2304131664607484_-_WEIBO_SECOND_PROFILE_MORE_WEIBO')
 # https://m.weibo.cn/api/container/getIndex?containerid=2304131664607484_-_WEIBO_SECOND_PROFILE_WEIBO&page_type=03
-
-containerid = int(input('请输入你的containerid: '))
-
 
 
 def get_data(containerid):
@@ -70,10 +66,20 @@ def handle_data():
 data_list = []
 
 
-get_data(containerid)
+if __name__ == '__main__':
+
+	while True:
+		try:
+			containerid = int(input('请输入你的containerid: '))
+			break
+		except ValueError:
+			print("请输入有效的数字")
+
+	get_data(containerid)
+	handle_data()
 
 
-handle_data()
+
 
 
 
